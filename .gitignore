@@ -1,0 +1,22 @@
+# Build files
+build/
+cmake-build-*/
+
+# Dependencies
+node_modules/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+
+# Compiled files
+*.o
+*.a
+*.dylib
+*.exe
+
+.vscode/

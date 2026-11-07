@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>Mini C++ Parser</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <section class="panel editor-panel" aria-labelledby="editor-title">
+      <div class="panel-heading">
+        <div class="heading-main">
+          <h1 id="editor-title">Вихідний код</h1>
+          <span class="language-tag">C++</span>
+        </div>
+
+        <div class="examples-picker">
+          <button
+            id="examples-toggle"
+            class="button button-quiet"
+            type="button"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="examples-menu"
+          >
+            Приклади <span class="chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div id="examples-menu" class="examples-menu" role="group" aria-label="Готові приклади" hidden>
+            <button class="example-option" type="button" data-example="arithmetic">
+              <span>Арифметика та змінні</span>
+            </button>
+            <button class="example-option" type="button" data-example="condition">
+              <span>Умова if / else</span>
+            </button>
+            <button class="example-option" type="button" data-example="loop">
+              <span>Цикл while</span>
+            </button>
+            <button class="example-option" type="button" data-example="division">
+              <span>Ділення та остача</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <textarea id="source" spellcheck="false" aria-label="Вихідний код програми"></textarea>
+
+      <div class="editor-footer">
+        <span id="line-count">1 рядок</span>
+        <button id="run-button" class="button button-primary" type="button">
+          <span class="run-icon" aria-hidden="true">▶</span> Виконати
+        </button>
+      </div>
+    </section>
+
+    <section class="results-grid" aria-label="Результати аналізу">
+      <article class="panel result-panel">
+        <div class="panel-heading compact-heading">
+          <h2>Результат виконання</h2>
+          <span id="status" class="status status-idle">Очікує запуску</span>
+        </div>
+        <pre id="output" class="output-content">Тут з'явиться результат програми.</pre>
+        <div id="error" class="error-content" hidden></div>
+      </article>
+
+      <article class="panel generated-panel">
+        <div class="panel-heading compact-heading">
+          <h2>Згенерований Python-код</h2>
+          <span class="language-tag">Python 3</span>
+        </div>
+        <pre id="generated-code" class="generated-content">Після виконання тут з'явиться згенерований код.</pre>
+      </article>
+    </section>
+
+    <section class="panel ast-panel" aria-labelledby="ast-title">
+      <div class="panel-heading compact-heading">
+        <h2 id="ast-title">Дерево AST</h2>
+        <span id="ast-count" class="ast-count">0 вузлів</span>
+      </div>
+      <div id="ast-empty" class="ast-empty">
+        <p>Дерево з'явиться після успішного аналізу програми.</p>
+      </div>
+      <div id="ast-container" class="ast-container" hidden>
+        <svg id="ast-svg" role="img" aria-label="Візуалізація абстрактного синтаксичного дерева"></svg>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
